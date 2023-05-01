@@ -20,10 +20,10 @@ model_dict = {
 data_dict = {
     'train':{
         'data_name': 'PersionKeypointTxt',
-        'num_workers': 6,
+        'num_workers': 4,
         'data_dir': '../DataSet/images_train/',
         'data_label': '../DataSet/images_train/label.txt',
-        'batch_size': 32,
+        'batch_size': 16,
         'resize': [224, 224], # w and h
         'mean': [103.53,116.28,123.675],
         'std': [57.375,57.12,58.395],

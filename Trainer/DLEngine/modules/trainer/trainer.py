@@ -7,8 +7,8 @@ import os
 import logging
 import shutil
 from DLEngine.modules.visualize.visual_util import *
-from DLEngine.modules.metric.map import calculate_map
-from DLEngine.modules.metric.top1 import calculate_top1
+# from DLEngine.modules.metric.map import calculate_map
+# from DLEngine.modules.metric.top1 import calculate_top1
 
 
 
