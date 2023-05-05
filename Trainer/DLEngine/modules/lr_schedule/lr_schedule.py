@@ -4,6 +4,7 @@ import math
 import logging
 import numpy as np
 
+
 class LrSchedule:
     def __init__(self, optimizer, opt_dict):
         self.opt_dict = opt_dict
@@ -12,7 +13,6 @@ class LrSchedule:
         self.opt = optimizer
         self.get_base_lr()
         self.lr_multy = 0.0
-
 
     def get_base_lr(self):
         self.base_lr_list = []
@@ -25,8 +25,8 @@ class LrSchedule:
         if warmup_iter < 1:
             warmup_iter = 1
         if cur_iter <= warmup_iter:
-            #new_lr = self.base_lr * cur_iter / warmup_iter
-            new_lr_multy =  cur_iter / warmup_iter
+            # new_lr = self.base_lr * cur_iter / warmup_iter
+            new_lr_multy = cur_iter / warmup_iter
         else:
             if self.lr_policy == "step":
                 lr_rate = float(self.opt_dict['lr_rate'])
@@ -34,14 +34,14 @@ class LrSchedule:
                 steps = [int(s * max_iter) for s in steps]
                 for i, step in enumerate(steps):
                     if cur_iter == step:
-                        #new_lr = self.base_lr * lr_rate ** (i + 1)
+                        # new_lr = self.base_lr * lr_rate ** (i + 1)
                         new_lr_multy = lr_rate ** (i + 1)
 
             elif self.lr_policy == "cos":
-                #new_lr = 0.5 * self.base_lr * (1.0 + math.cos(cur_iter * 3.1415926 / max_iter))
+                # new_lr = 0.5 * self.base_lr * (1.0 + math.cos(cur_iter * 3.1415926 / max_iter))
                 new_lr_multy = 0.5 * (1.0 + math.cos(cur_iter * 3.1415926 / max_iter))
             else:
-                logging.error("unsupport lr policy: %s"%self.lr_policy)
+                logging.error("unsupport lr policy: %s" % self.lr_policy)
                 exit(0)
 
         if 'new_lr_multy' in locals().keys():

@@ -11,7 +11,7 @@ import models
 import numpy as np
 
 ################config info#####################################
-MODEL_DIR='save/keypoint_shufflenetv2_heatmap_224_1.0_3kps-20220921140711/'
+MODEL_DIR='save/keypoint_shufflenetv2_heatmap_224_1.0_3kps-20220921140711/'   # 运行脚本前需要先更改目录
 NCNN_DIR='/usr/bin'
 MODEL_TYPE='keypoint' #classify / detection / keypoint
 DETAIL_LOG=True
